@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Counter</title>
+  <!-- normalize -->
+  <link rel="stylesheet" href="/normalize.css" />
+  <!-- font-awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+  />
+  <!-- main css -->
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <main>
+    <div class="container">
+      <h1>counter</h1>
+      <span id="value">0</span>
+      <div class="button-container">
+        <button type="button" class="btn counter-btn decrease">
+          decrease
+        </button>
+        <button type="button" class="btn counter-btn reset">reset</button>
+        <button type="button" class="btn counter-btn increase">
+          increase
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const valueSpan = document.getElementById("value");
+      const decreaseBtn = document.querySelector(".decrease");
+      const resetBtn = document.querySelector(".reset");
+      const increaseBtn = document.querySelector(".increase");
+
+      let counterValue = 0;
+
+      function updateCounter() {
+        valueSpan.textContent = counterValue;
+      }
+
+      decreaseBtn.addEventListener("click", function () {
+        counterValue--;
+        updateCounter();
+      });
+
+      resetBtn.addEventListener("click", function () {
+        counterValue = 0;
+        updateCounter();
+      });
+
+      increaseBtn.addEventListener("click", function () {
+        counterValue++;
+        updateCounter();
+      });
+    });
+  </script>
+</body>
+</html>
